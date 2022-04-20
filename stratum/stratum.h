@@ -151,6 +151,7 @@ void sha256_hash_hex(const char *input, char *output, unsigned int len);
 void sha256_double_hash_hex(const char *input, char *output, unsigned int len);
 
 
+#include "algos/0x10.h"
 #include "algos/a5a.h"
 #include "algos/aergo.h"
 #include "algos/allium.h"
@@ -190,6 +191,7 @@ void sha256_double_hash_hex(const char *input, char *output, unsigned int len);
 #include "algos/lyra2z330.h"
 #include "algos/m7m.h"
 #include "algos/minotaur.h"
+#include "algos/minotaurx.h"
 #include "algos/neoscrypt.h"
 #include "algos/nist5.h"
 #include "algos/pentablake.h"
