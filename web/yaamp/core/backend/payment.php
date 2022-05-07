@@ -73,7 +73,7 @@ function BackendCoinPayments($coin)
                 if ($coin->symbol == 'MBC')
                     $tx = $remote->sendtoaddress($user->username, round($amount, 4));
                 else
-                    $tx = $remote->sendtoaddress($user->username, round($amount, 6));
+                    $tx = $remote->sendtoaddress($user->username, round($amount, 8));
                 if (!$tx) {
                     $error = $remote->error;
                     debuglog("RPC $error, {$user->username}, $amount");
@@ -115,7 +115,7 @@ function BackendCoinPayments($coin)
         } else
         foreach ($users as $user) {
             $total_to_pay += round($user->balance, 6);
-            $addresses[$user->username] = round($user->balance, 6);
+            $addresses[$user->username] = round($user->balance, 8);
             // transaction xxx has too many sigops: 1035 > 1000
             if ($coin->symbol == 'DCR' && count($addresses) > 990) {
                 debuglog("payment: more than 990 {$coin->symbol} users to pay, limit to top balances...");
@@ -156,7 +156,7 @@ function BackendCoinPayments($coin)
         debuglog("pie to split is $pie");
         if ($pie > 0) {
             foreach ($cold_wallet_table as $coldwallet => $percent) {
-                $coldamount = round($pie * $percent, 6);
+                $coldamount = round($pie * $percent, 8);
                 if ($coldamount < $min_payout)
                     break;
 
