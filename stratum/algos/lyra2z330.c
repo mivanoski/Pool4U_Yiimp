@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "Lyra2-z.h"
+#include "lyra2z.h"
 
 #define _ALIGN(x) __attribute__ ((aligned(x)))
 
