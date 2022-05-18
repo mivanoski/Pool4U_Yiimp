@@ -306,6 +306,8 @@ else if ($coin->symbol == "RNG") $account = '*';
 
 else if ($coin->symbol == "ZENX") $account = '*';
 
+else if ($coin->symbol == "SIN") $account = '*';
+
 $txs = $remote->listtransactions($account, $maxrows);
 
 if (empty($txs)) {
