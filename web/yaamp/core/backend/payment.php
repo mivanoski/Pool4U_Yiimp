@@ -59,7 +59,7 @@ function BackendCoinPayments($coin)
 
     // todo: enhance/detect payout_max from normal sendmany error
     //Changed from Pool4U
-    if ($coin->symbol == 'BZX' || $coin->symbol == 'ZOC' || $coin->symbol == 'PGN' || $coin->symbol == 'SCRIV' || $coin->symbol == 'GENIX' || !empty($coin->payout_max))
+    if ($coin->symbol == 'BZX' || $coin->symbol == 'ZOC' || $coin->symbol == 'PGN' || $coin->symbol == 'SCRIV' || $coin->symbol == 'GENIX' || $coin->symbol == 'SOV' || !empty($coin->payout_max))
     {
         foreach ($users as $user) {
             $user = getdbo('db_accounts', $user->id);
