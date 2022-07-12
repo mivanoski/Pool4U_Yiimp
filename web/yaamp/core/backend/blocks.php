@@ -7,8 +7,8 @@ function BackendBlockNew($coin, $db_block)
     if (!$reward || $db_block->algo == 'PoS' || $db_block->algo == 'MN') return;
     if ($db_block->category == 'stake' || $db_block->category == 'generated') return;
 
-    $is_solo = getdbocount('db_workers',"algo=:algo and userid=:userid and password like '%m=solo%'", 
-			array(':algo'=>$db_block->algo,':userid'=>$db_block->userid));
+    //$is_solo = getdbocount('db_workers',"algo=:algo and userid=:userid and password like '%m=solo%'", array(':algo'=>$db_block->algo,':userid'=>$db_block->userid));
+    $is_solo = getdbocount('db_workers',"algo=:algo and userid=:userid and id=:workerid and password like '%m=solo%'", array(':algo'=>$db_block->algo,':userid'=>$db_block->userid,':workerid'=>$db_block->workerid));
 
 	if ($is_solo == 0)
 	{
